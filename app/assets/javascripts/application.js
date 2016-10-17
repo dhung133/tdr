@@ -18,8 +18,12 @@
 
 
 // Slider JS
-jQuery(document).ready(function ($) {
-    
+$(document).ready(function(e) {
+    new WOW().init();
+});   
+
+jQuery(document).ready(function ($) 
+{
     var jssor_1_SlideoTransitions = [
       [{b:-1,d:1,o:-1},{b:0,d:1000,o:1}],
       [{b:1900,d:2000,x:-379,e:{x:7}}],
