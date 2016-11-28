@@ -14,6 +14,7 @@ class Ability
         cannot :manage, :all
         can :read, :all
       else
+        can [:create, :destroy], Request, user_id: user.id
         can :read, :all
         can :manage, Review, user_id: user.id
         can :manage, Comment, user_id: user.id

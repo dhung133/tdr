@@ -17,11 +17,13 @@ Rails.application.routes.draw do
   resources :votes, only: [:create, :destroy]
   resources :categories, only: :show
   resources :relationships, only: [:create, :destroy]
+  resources :requests, except: [:edit, :update]
   namespace :admin do
     root "static_pages#home"
     resources :locations
     resources :users, only: [:index, :destroy, :show]
     resources :categories
     resources :images, only: [:new, :create]
+    resources :requests, except: [:create, :new, :edit]
   end
 end

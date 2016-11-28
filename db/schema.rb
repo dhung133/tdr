@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161024125039) do
+ActiveRecord::Schema.define(version: 20161127051530) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -83,6 +83,15 @@ ActiveRecord::Schema.define(version: 20161024125039) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "status",     default: 0
+    t.integer  "user_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|

@@ -1,0 +1,15 @@
+<% @requests.each_with_index do |request, index| %>
+  <tr>
+    <th scope="row"><%= index + 1 %></th>
+    <td><%= request.content.truncate 70 %></td>
+    <td><%= request.created_at.strftime t(:time_type) %></td>
+    <td><%= request.status %></td>
+    <td>
+      <%= link_to "", request_path(request),
+        class: "glyphicon glyphicon-log-in" %>
+      <%= link_to "", request_path(request),
+        method: :delete, data: {confirm: t("confirm_rq")},
+        class: "glyphicon glyphicon-remove" %>
+    </td>
+  </tr>
+<% end %>
