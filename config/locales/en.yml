@@ -76,4 +76,5 @@ en:
     accepted: "User's request is accepted."
     denied: "User's request is denied."
     update_fail: "Manage Fails"
-    
+  commentcreated: "Comment created success"
+  cannotcomment: "Comment fail"
