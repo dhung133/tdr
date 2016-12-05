@@ -88,6 +88,34 @@
       <%= paginate @reviews, theme: 'twitter-bootstrap-3' %>
     </div>      
   </div>
+  <hr>
+  <div class="row">
+    <h2>Suggestion</h2>
+    <div class="container">
+      <div class="list-travel">
+        <% @suggestions.each do |suggestion| %>
+          <div class="card-box col-md-4 col-sm-6">
+            <div class="card">
+              <div class="header"
+                style="background: url(<%= suggestion.picture.url %>) center center /cover">
+                  <div class="filter"></div>
+              </div>
+              <div class="content" style="color: black;">
+                  <h6 class="category"><%= @category.name %></h6>
+                  <h4 class="title">
+                    <%= link_to suggestion.name, location_path(suggestion),
+                      style: "color: black;" %>
+                  </h4>
+                  <p class="description">
+                    <%= suggestion.introduction %>
+                  </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
