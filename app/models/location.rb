@@ -23,6 +23,8 @@ class Location < ApplicationRecord
     order("rate_avg DESC").limit(5)
   end
 
+  scope :all_except, ->(location){where.not(id: location)}
+
   before_save :update_rating
 
   UNRANSACKABLE_ATTRIBUTES = ["id", "updated_at", "created_at", "introduction", "picture", "address", "latitude", "longitude"]

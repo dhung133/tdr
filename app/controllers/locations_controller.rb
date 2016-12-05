@@ -12,5 +12,7 @@ class LocationsController < ApplicationController
     @review = Review.new
     @reviews = @location.reviews.all.page(params[:page]).per_page(3)
     @comment = Comment.new
+    @category = @location.category
+    @suggestions = @category.locations.all_except(@location).limit(3)
   end
 end
